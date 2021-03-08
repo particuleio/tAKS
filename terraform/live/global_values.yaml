@@ -1,0 +1,6 @@
+---
+resource_group_name: tmassard
+default_domain_name: tbobm.tech
+prefix: tbobm
+project: taks
+tf_state_bucket_location: "West Europe"
