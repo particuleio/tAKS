@@ -1,13 +1,12 @@
 locals {
   location            = yamldecode(file("../../../region_values.yaml"))["location"]
-  application_name    = "${local.prefix}-${yamldecode(file("../../../../../global_values.yaml"))["project"]}"
-  domain_name         = yamldecode(file("../../../../../global_values.yaml"))["default_domain_name"]
   resource_group_name = yamldecode(file("../../../../../global_values.yaml"))["resource_group_name"]
   env                 = yamldecode(file("../../../../env_tags.yaml"))["Env"]
   prefix              = yamldecode(file("../../../../../global_values.yaml"))["prefix"]
+  global_tags = yamldecode(file("../../../../../global_tags.yaml"))
+  env_tags = yamldecode(file("../../../../env_tags.yaml"))
   custom_tags = merge(
-    yamldecode(file("../../../../../global_tags.yaml")),
-    yamldecode(file("../../../../env_tags.yaml"))
+    local.global_tags,
+    local.env_tags
   )
-
 }

@@ -1,3 +1,3 @@
-data "azurerm_resource_group" "tf_state" {
+data "azurerm_resource_group" "current" {
   name = local.resource_group_name
 }
